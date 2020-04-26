@@ -1,0 +1,23 @@
+#https://docs.travis-ci.com/user/environment-variables/#Default-Environment-Variables
+dist: trusty
+language: node_js
+node_js:
+  - "12"
+before_install:
+  - npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+install:
+  - npm install
+jobs:
+  include:
+    - stage: Deploy configurations
+      if: branch = master AND NOT type = pull_request
+      script:
+        - npm run test && npm run deploy
+    - stage: Pull request build
+      if: type = pull_request
+      script:
+        - npm run test
+after_failure:
+  - reports-publisher
+after_success:
+  - reports-publisher
