@@ -1,0 +1,37 @@
+{
+  "name": "kikilo-dictionaries",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "node . deploy",
+    "build": "node . build",
+    "lint": "sui-lint js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscar-raig/kikilo-dictionaries.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oscar-raig/kikilo-dictionaries/issues"
+  },
+  "homepage": "https://github.com/oscar-raig/kikilo-dictionaries#readme",
+  "devDependencies": {
+    "@s-ui/lint": "^3.14.0",
+    "rimraf": "^3.0.2",
+    "s3-folder-upload": "^2.3.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
+  },
+  "stylelint": {
+    "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
+  },
+  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js"
+}
