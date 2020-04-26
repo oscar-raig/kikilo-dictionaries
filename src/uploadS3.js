@@ -28,6 +28,10 @@ const filesOptions = {
 const invalidations = undefined
 
 module.exports = function upload() {
+  if( !credentials.accessKeyId || !credentials.secretAccessKey) {
+    throw new Error('Undefined credentials')
+  }
+  console.log('credientials' + JSON.stringify(credentials))
   s3FolderUpload('dist', credentials, options, invalidations, filesOptions)
   console.log('deploying>>')
 }
