@@ -1,5 +1,3 @@
-
-
 const ymlReader = require('js-yaml')
 const fs = require('fs')
 const rimraf = require('rimraf')
@@ -18,6 +16,3 @@ function generateJSON() {
 }
 
 module.exports = generateJSON
-
-
-

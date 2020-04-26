@@ -1,8 +1,8 @@
 const REGION = require('../settings').REGION
 const BUCKET = require('../settings').BUCKET
+const colors = require('colors')
 
 const s3FolderUpload = require('s3-folder-upload')
-
 
 const {AWS_ACCESS_KEY, AWS_SECRET_KEY} = process.env
 
@@ -12,7 +12,6 @@ const credentials = {
   region: REGION,
   bucket: BUCKET
 }
-
 
 const options = {
   useFoldersForFileTypes: false,
@@ -28,10 +27,11 @@ const filesOptions = {
 const invalidations = undefined
 
 module.exports = function upload() {
-  if( !credentials.accessKeyId || !credentials.secretAccessKey) {
-    throw new Error('Undefined credentials')
+  if (!credentials.accessKeyId || !credentials.secretAccessKey) {
+    const msg = 'Undefined credentials'
+    console.log(colors.red(msg))
+    throw new Error(msg)
   }
-  console.log('credientials' + JSON.stringify(credentials))
   s3FolderUpload('dist', credentials, options, invalidations, filesOptions)
-  console.log('deploying>>')
+  console.log(colors.green('deployed>>'))
 }
