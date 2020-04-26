@@ -7,7 +7,8 @@
     "test": "sui-test server --pattern \"test/**/*Test.js test/*Test.js\"",
     "deploy": "node . deploy",
     "build": "node . build",
-    "lint": "sui-lint js"
+    "lint": "sui-lint js",
+    "check": "npm run lint && npm run test"
   },
   "repository": {
     "type": "git",
