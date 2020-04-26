@@ -25,6 +25,7 @@
     "@s-ui/lint": "^3.14.0",
     "@s-ui/test": "^3.0.0",
     "chai": "^4.2.0",
+    "colors": "^1.4.0",
     "rimraf": "^3.0.2",
     "s3-folder-upload": "^2.3.0"
   },

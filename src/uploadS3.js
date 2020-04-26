@@ -1,5 +1,6 @@
 const REGION = require('../settings').REGION
 const BUCKET = require('../settings').BUCKET
+const colors = require('colors')
 
 const s3FolderUpload = require('s3-folder-upload')
 
@@ -27,8 +28,10 @@ const invalidations = undefined
 
 module.exports = function upload() {
   if (!credentials.accessKeyId || !credentials.secretAccessKey) {
-    throw new Error('Undefined credentials')
+    const msg = 'Undefined credentials'
+    console.log(colors.red(msg))
+    throw new Error(msg)
   }
   s3FolderUpload('dist', credentials, options, invalidations, filesOptions)
-  console.log('deployed>>')
+  console.log(colors.green('deployed>>'))
 }
